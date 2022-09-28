@@ -180,9 +180,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.item-done {
-  text-decoration: line-through;
-}
-</style>

@@ -80,4 +80,7 @@ export default {
   background-position: left bottom;
   color: #fff;
 }
+.item-done {
+  text-decoration: line-through;
+}
 </style>

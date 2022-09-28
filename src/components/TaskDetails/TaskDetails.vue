@@ -57,7 +57,9 @@
                 ></ph-check-square>
               </v-btn>
             </v-list-item-icon>
-            <v-list-item-title>{{ item.content }}</v-list-item-title>
+            <v-list-item-title :class="{ 'item-done': item.status }">{{
+              item.content
+            }}</v-list-item-title>
             <v-spacer />
             <v-list-item-icon>
               <v-btn icon>
@@ -167,7 +169,9 @@ export default {
         list: this.task.items,
       };
       updateTaskItemsList(data)
-        .then(() => {})
+        .then(() => {
+          this.newItemToTask = null;
+        })
         .catch((err) => {
           console.log(err);
         });
