@@ -8,18 +8,10 @@
           >
         </v-row>
         <v-row class="pa-2 mx-0">
-          <v-col cols="12" sm="12" md="4">
+          <v-col cols="12">
             <ListTasksComponent
               :update="update"
               @idTask="setIdTask"
-              @update="updateList"
-              @close="close"
-            />
-          </v-col>
-          <v-col cols="12" sm="12" md="8" v-if="idTask != null">
-            <TaskDetailsComponent
-              v-if="idTask"
-              :idTask="idTask"
               @update="updateList"
               @close="close"
             />
@@ -32,34 +24,14 @@
 
 <script>
 import ListTasksComponent from "./components/ListTasks/ListTasks.vue";
-import TaskDetailsComponent from "./components/TaskDetails/TaskDetails.vue";
 
 export default {
   name: "App",
-
   components: {
     ListTasksComponent,
-    TaskDetailsComponent,
   },
-
   data() {
-    return {
-      iconSize: "25px",
-      idTask: null,
-      update: false,
-    };
-  },
-
-  methods: {
-    setIdTask(id) {
-      this.idTask = id;
-    },
-    close() {
-      this.idTask = null;
-    },
-    updateList(value) {
-      this.update = value;
-    },
+    return {};
   },
 };
 </script>

@@ -46,7 +46,6 @@
                 <ph-square
                   :size="iconSize"
                   v-if="!item.status"
-                  color="orange"
                   @click="changeTaskItemStatus(key, true)"
                 ></ph-square>
                 <ph-check-square
@@ -62,10 +61,9 @@
             }}</v-list-item-title>
             <v-spacer />
             <v-list-item-icon>
-              <v-btn icon>
+              <v-btn icon color="error">
                 <ph-trash
                   :size="iconSize"
-                  color="red"
                   @click="deleteItemFromTask(key)"
                 />
               </v-btn>
