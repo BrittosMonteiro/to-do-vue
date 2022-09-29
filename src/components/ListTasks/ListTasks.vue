@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-card rounded="sm" width="100%" max-width="1000" class="ma-auto">
+    <v-card
+      rounded="sm"
+      width="100%"
+      max-width="750"
+      class="ma-auto blue-grey darken-3 pa-4"
+      elevation="10"
+    >
       <v-card-actions>
         <v-text-field
           v-model="newTask"
@@ -15,7 +21,7 @@
           @click="addTask"
           class="ml-2"
           :disabled="!newTask"
-          color="primary"
+          color="white"
         >
           <ph-upload-simple :size="iconSize" />
         </v-btn>
@@ -26,8 +32,12 @@
       >
         <p class="mb-0">Não há tarefas</p>
       </v-card-title>
-      <v-list class="pa-0" v-if="tasksList.length > 0">
-        <v-list-item v-for="item in tasksList" :key="item.id">
+      <v-list class="pa-0 blue-grey darken-3" v-if="tasksList.length > 0">
+        <v-list-item
+          v-for="item in tasksList"
+          :key="item.id"
+          class="white--text"
+        >
           <v-list-item-icon class="pa-0 mr-2">
             <v-btn icon>
               <ph-check-circle
@@ -40,6 +50,7 @@
                 :size="iconSize"
                 @click="updateTodoItemStatus(item.id, true)"
                 v-if="!item.status"
+                color="white"
               />
             </v-btn>
           </v-list-item-icon>
@@ -53,10 +64,7 @@
           </v-list-item-title>
           <v-spacer />
           <v-btn icon class="ml-2" color="error">
-            <ph-trash
-              :size="iconSize"
-              @click="deleteTaskFromList(item.id)"
-            />
+            <ph-trash :size="iconSize" @click="deleteTaskFromList(item.id)" />
           </v-btn>
         </v-list-item>
       </v-list>
@@ -66,7 +74,6 @@
       width="100%"
       max-width="1000"
       scrollable
-      persistent
     >
       <TaskDetailsComponent
         :idTask="idTask"
@@ -115,7 +122,7 @@ export default {
         .then((res) => res.json())
         .then((res) => {
           this.tasksList = res;
-          this.$emit("update", false);
+          this.dialogTaskDetails = false;
         })
         .catch((err) => {
           console.log(err);

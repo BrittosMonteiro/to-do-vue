@@ -1,5 +1,5 @@
 <template>
-  <v-card rounded="sm">
+  <v-card rounded="sm" class="blue-grey darken-3 pa-4" elevation="10">
     <v-card-title class="pa-3 pb-0">
       <v-text-field
         solo
@@ -27,19 +27,23 @@
           class="ml-2"
           @click="addNewItemToTask"
           :disabled="!newItemToTask"
-          color="blue"
+          color="white"
         >
           <ph-list-plus :size="iconSize" />
         </v-btn>
       </v-row>
       <p
         v-if="task && !task.items.length > 0"
-        class="text-subtitle-1 font-weight-light text-center ma-4"
+        class="text-subtitle-1 font-weight-light text-center ma-4 white--text"
       >
         Nenhum item
       </p>
       <div v-if="task && task.items.length > 0">
-        <v-list v-for="(item, key) in task.items" :key="key" class="pa-0">
+        <v-list
+          v-for="(item, key) in task.items"
+          :key="key"
+          class="pa-0 blue-grey darken-3"
+        >
           <v-list-item class="ma-0">
             <v-list-item-icon>
               <v-btn icon>
@@ -56,16 +60,15 @@
                 ></ph-check-square>
               </v-btn>
             </v-list-item-icon>
-            <v-list-item-title :class="{ 'item-done': item.status }">{{
-              item.content
-            }}</v-list-item-title>
+            <v-list-item-title
+              class="white--text"
+              :class="{ 'item-done': item.status }"
+              >{{ item.content }}</v-list-item-title
+            >
             <v-spacer />
             <v-list-item-icon>
               <v-btn icon color="error">
-                <ph-trash
-                  :size="iconSize"
-                  @click="deleteItemFromTask(key)"
-                />
+                <ph-trash :size="iconSize" @click="deleteItemFromTask(key)" />
               </v-btn>
             </v-list-item-icon>
           </v-list-item>
@@ -74,7 +77,7 @@
       <v-divider class="mt-4"></v-divider>
       <v-textarea
         solo
-        class="pa-0 text-body-1 font-weight-light"
+        class="pa-0 text-body-1 font-weight-light blue-grey darken-3 white--text"
         placeholder="INFORMAÇÕES ADICIONAIS"
         no-resize
         v-if="task"

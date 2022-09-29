@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="blue-grey darken-4">
       <v-container>
         <v-row no-gutters justify="center">
           <span class="text-h3 font-weight-light rounded-sm pa-2 page-title"
@@ -36,18 +36,31 @@ export default {
   box-shadow: none !important;
 }
 .page-title {
-  color: #303030;
-  border: 3px solid #303030;
-  background: linear-gradient(to right, #303030 50%, #fff 50%);
+  color: #fff;
+  border: 3px solid #fff;
+  background: linear-gradient(to right, #fff 50%, #263238 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 1s ease;
 }
 .page-title:hover {
   background-position: left bottom;
-  color: #fff;
+  color: #263238;
+  transform: rotateY(360deg);
 }
 .item-done {
   text-decoration: line-through;
+}
+.v-input__control {
+  color: #263238 !important;
+}
+.v-text-field__slot input {
+  color: #fff !important;
+}
+.v-text-field__slot textarea {
+  color: #fff !important;
+}
+.theme--light.v-text-field--solo > .v-input__control > .v-input__slot{
+  background: initial !important;
 }
 </style>
