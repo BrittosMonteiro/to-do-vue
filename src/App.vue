@@ -9,12 +9,7 @@
         </v-row>
         <v-row class="pa-2 mx-0">
           <v-col cols="12">
-            <ListTasksComponent
-              :update="update"
-              @idTask="setIdTask"
-              @update="updateList"
-              @close="close"
-            />
+            <ListTasksComponent />
           </v-col>
         </v-row>
       </v-container>
