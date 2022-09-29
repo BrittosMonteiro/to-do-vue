@@ -51,6 +51,7 @@
                   :size="iconSize"
                   v-if="!item.status"
                   @click="changeTaskItemStatus(key, true)"
+                  color="white"
                 ></ph-square>
                 <ph-check-square
                   :size="iconSize"
