@@ -154,7 +154,7 @@ export default {
         content: this.newItemToTask,
         status: false,
       };
-      this.task.items.push(data);
+      this.task.items.unshift(data);
       this.updateTaskItems();
     },
     changeTaskItemStatus(key, status) {
